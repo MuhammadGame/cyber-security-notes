@@ -1,0 +1,146 @@
+.File and Directory Management
+1.	pwd
+o	What it does: Shows the folder you're currently in.
+o	Usage: Just type pwd and press Enter.
+o	Example: /home/user means you’re in the "user" folder.
+2.	ls
+o	What it does: Lists all files and folders in the current location.
+o	Usage: Just type ls and press Enter.
+3.	cd [folder]
+o	What it does: Changes the current folder to a different one.
+o	Usage: cd folder_name
+o	Example: cd Documents moves you to the "Documents" folder.
+4.	mkdir [folder]
+o	What it does: Makes a new folder.
+o	Usage: mkdir new_folder
+o	Example: mkdir Projects creates a new folder called "Projects".
+5.	rm [file]
+o	What it does: Deletes a file.
+o	Usage: rm file_name
+o	Example: rm text.txt deletes "text.txt".
+6.	cp [file] [destination]
+o	What it does: Copies a file to a different location.
+o	Usage: cp file_name destination_folder
+o	Example: cp file.txt /home/user/Documents/ copies "file.txt" to the Documents folder.
+7.	mv [file] [destination]
+o	What it does: Moves or renames a file.
+o	Usage: mv file_name destination_folder
+o	Example: mv file.txt /home/user/Documents/ moves "file.txt" to Documents.
+8.	cat [file]
+o	What it does: Displays the contents of a file.
+o	Usage: cat file_name
+o	Example: cat notes.txt shows what’s inside "notes.txt".
+9.	touch [file]
+o	What it does: Creates an empty file.
+o	Usage: touch file_name
+o	Example: touch file.txt creates an empty file called "file.txt".
+10.	chmod [permissions] [file]
+o	What it does: Changes file permissions.
+o	Usage: chmod 755 file_name
+o	Example: chmod 755 script.sh gives the owner full permissions and others read/execute permission.
+System Information
+11.	uname
+o	What it does: Displays information about the system.
+o	Usage: Type uname and press Enter.
+o	Example: uname -a gives detailed system info like the kernel version.
+12.	whoami
+o	What it does: Tells you which user you're logged in as.
+o	Usage: Just type whoami and press Enter.
+Process Management
+13.	ps
+o	What it does: Lists running processes.
+o	Usage: Type ps and press Enter.
+o	Example: ps aux shows all processes running on the system.
+14.	kill [process_id]
+o	What it does: Stops (kills) a running process.
+o	Usage: Find the process ID with ps aux and stop it using kill process_id.
+o	Example: kill 1234 stops the process with ID 1234.
+Network Commands
+15.	ifconfig
+o	What it does: Shows network interface information like IP addresses.
+o	Usage: Type ifconfig to see details about your network connections.
+16.	ping [website or IP]
+o	What it does: Tests if your computer can reach another computer or website.
+o	Usage: ping google.com
+o	Example: ping google.com sends packets to Google's server to check if it's reachable.
+17.	hostname
+o	What it does: Shows or sets your computer’s network name.
+o	Usage: Type hostname to display the current computer's name.
+18.	curl [URL]
+o	What it does: Fetches data from a URL (website).
+o	Usage: curl http://example.com
+o	Example: curl http://example.com downloads the page from example.com.
+19.	wget [URL]
+o	What it does: Downloads files from the web.
+o	Usage: wget http://example.com/file.txt
+o	Example: wget http://example.com/file.txt downloads "file.txt" from the website.
+20.	traceroute [website or IP]
+o	What it does: Shows the path your data takes to reach a website.
+o	Usage: traceroute google.com
+o	Example: traceroute google.com shows the network path to Google.
+21.	nslookup [website]
+o	What it does: Looks up the IP address of a domain name.
+o	Usage: nslookup google.com
+o	Example: nslookup google.com shows the IP address for Google.
+22.	netstat
+o	What it does: Displays network connections and routing tables.
+o	Usage: Just type netstat to see active network connections.
+o	Example: netstat -tuln shows active listening ports and services.
+23.	ip addr
+o	What it does: Shows or manages IP addresses on your machine.
+o	Usage: Type ip addr to see all network interfaces and their IP addresses.
+24.	ss
+o	What it does: Displays socket statistics and active connections.
+o	Usage: ss provides more detailed info than netstat.
+o	Example: ss -tuln shows all listening ports and services.
+25.	route
+o	What it does: Displays or manipulates the IP routing table.
+o	Usage: Just type route to see the routing table.
+26.	ip route
+o	What it does: Shows or configures the routing table.
+o	Usage: Type ip route to see your current network routes.
+27.	whois [domain]
+o	What it does: Shows information about a domain name.
+o	Usage: whois google.com gives info about the Google domain.
+Disk and File System Management
+28.	df
+o	What it does: Shows how much space is left on your hard drive.
+o	Usage: Type df -h to see space usage in a human-readable format.
+29.	du
+o	What it does: Displays the size of files and folders.
+o	Usage: Type du -h to see folder sizes in a human-readable format.
+o	Example: du -h folder_name/ shows the size of a folder.
+Miscellaneous
+30.	clear
+o	What it does: Clears the terminal screen.
+o	Usage: Just type clear and press Enter.
+31.	history
+o	What it does: Shows a list of all the commands you've typed recently.
+o	Usage: Type history and press Enter.
+32.	echo [text]
+o	What it does: Prints text to the terminal or writes text into a file.
+o	Usage:
+	Example 1: echo "Hello World" prints "Hello World" to the terminal.
+	Example 2: echo "Hello" > file.txt writes "Hello" into the file "file.txt".
+Package Management
+33.	sudo
+o	What it does: Gives you permission to run certain commands as a superuser.
+o	Usage: Type sudo before a command that needs special permissions.
+o	Example: sudo apt update updates the software.
+34.	sudo apt update
+o	What it does: Updates the list of available software and versions.
+o	Usage: Just type sudo apt update to refresh the package list.
+35.	sudo apt upgrade
+o	What it does: Installs newer versions of the software installed on your system.
+o	Usage: Type sudo apt upgrade to update all software to the latest versions.
+36.	sudo apt install [package_name]
+o	What it does: Installs a new package (software).
+o	Usage: sudo apt install package_name
+o	Example: sudo apt install firefox installs Firefox.
+37.	sudo apt remove [package_name]
+o	What it does: Uninstalls a package.
+o	Usage: sudo apt remove package_name
+o	Example: sudo apt remove firefox removes Firefox.
+Git:
+ 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
+S
