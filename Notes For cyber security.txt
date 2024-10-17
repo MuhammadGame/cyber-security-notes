@@ -141,6 +141,78 @@ o	Example: sudo apt install firefox installs Firefox.
 o	What it does: Uninstalls a package.
 o	Usage: sudo apt remove package_name
 o	Example: sudo apt remove firefox removes Firefox.
+
+
+
+
+
+
+
+
+
+Basic Commands
+#!/bin/bash: Shebang, specifies that the script should be executed with Bash.
+echo: Prints text to the terminal.
+#: Denotes a comment.
+Variables
+Variable assignment: Assigns a value to a variable.
+$: Used to access the value of a variable.
+User Input
+read: Accepts input from the user.
+Conditional Statements
+if: Begins a conditional block.
+else: Specifies alternate code if the if condition is false.
+elif: Adds another condition within an if block.
+fi: Ends an if block.
+Loops
+while: Creates a loop that runs while a condition is true.
+for: Iterates over a list of items.
+break: Exits a loop early.
+continue: Skips the current iteration of a loop.
+Functions
+function: Defines a reusable block of code.
+return: Exits a function and optionally returns a value.
+Exit and Error Handling
+exit: Exits the script and optionally returns a status code.
+trap: Defines actions to take when a script receives a signal (e.g., cleanup on exit).
+File Operations
+touch: Creates an empty file or updates the timestamp of an existing file.
+chmod: Changes file permissions.
+chown: Changes file or directory ownership.
+rm: Removes files or directories.
+Process Management
+ps: Displays running processes.
+kill: Terminates a process by its process ID.
+sleep: Pauses the script for a specified amount of time.
+Arithmetic
+let: Performs arithmetic operations.
+(( )): Arithmetic evaluation.
+File Testing
+[ -f ]: Tests if a file exists and is a regular file.
+[ -d ]: Tests if a directory exists.
+[ -r ]: Checks if a file is readable.
+[ -w ]: Checks if a file is writable.
+[ -x ]: Checks if a file is executable.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Git:
  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
 S
