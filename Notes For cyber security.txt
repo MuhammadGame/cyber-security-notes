@@ -480,6 +480,132 @@ This basic process helps you monitor system performance and troubleshoot issues.
 
 
 
+1. Definition: Basic System Security Principles on Linux
+Keep software up to date: Always update the system and installed programs to fix vulnerabilities.
+Use strong passwords: Ensure passwords are complex to prevent unauthorized access.
+Restrict file permissions: Limit who can read, write, or execute files to reduce security risks.
+Use firewalls: Control which network traffic is allowed to enter or leave your system.
+2. File Permissions
+Explanation:
+In Linux, every file and folder has permissions that control who can read, write, or execute them:
+Read (r): Allows viewing the content.
+Write (w): Allows modifying or deleting the content.
+Execute (x): Allows running a file as a program.
+Key Commands:
+chmod: Changes file/folder permissions.
+
+Example: Make a file executable (add execute permission):
+bash
+Copy code
+chmod +x filename
+chown: Changes the ownership of a file/folder.
+
+Example: Change file ownership to user muhammad:
+bash
+Copy code
+sudo chown muhammad filename
+ls -l: Lists files with their permissions.
+
+Example: View permissions of files in a directory:
+bash
+Copy code
+ls -l
+3. User Management
+Key Commands:
+Create a user:
+
+Use adduser to create a new user.
+bash
+Copy code
+sudo adduser username
+Modify a user:
+
+Use usermod to modify a user (e.g., change user groups or home directory).
+bash
+Copy code
+sudo usermod -aG groupname username
+Delete a user:
+
+Use deluser to remove a user from the system.
+bash
+Copy code
+sudo deluser username
+Assign Permissions to Users:
+Example: To give a user read, write, and execute access to a folder, use chmod and chown:
+bash
+Copy code
+sudo chown username foldername
+sudo chmod 700 foldername
+4. Firewall Basics
+What is UFW (Uncomplicated Firewall)?
+UFW is a simple tool for managing firewall rules to control incoming/outgoing traffic.
+Key Commands:
+Enable UFW:
+
+bash
+Copy code
+sudo ufw enable
+Allow a port (e.g., port 22 for SSH):
+
+bash
+Copy code
+sudo ufw allow 22
+Deny a port (e.g., block a port):
+
+bash
+Copy code
+sudo ufw deny 8080
+Check UFW status:
+
+bash
+Copy code
+sudo ufw status
+5. Self-Made Instructions
+Securing a Folder with Permissions:
+Change folder ownership to the correct user:
+bash
+Copy code
+sudo chown username foldername
+Restrict access to the owner only:
+bash
+Copy code
+chmod 700 foldername
+Setting Up Basic Firewall Rules:
+Enable UFW:
+bash
+Copy code
+sudo ufw enable
+Allow a service (e.g., SSH on port 22):
+bash
+Copy code
+sudo ufw allow 22
+Deny access to a port (e.g., block port 8080):
+bash
+Copy code
+sudo ufw deny 8080
+Using Git for Updates
+Commit Your Changes Regularly:
+
+After adding or updating notes, use git commit with a clear message.
+Example:
+bash
+Copy code
+git commit -m "Updated system security notes"
+Push Your Changes to GitHub:
+
+After committing, push the changes to your GitHub repository:
+bash
+Copy code
+git push
+
+
+
+
+
+
+
+
+
 
 
 
