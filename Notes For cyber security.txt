@@ -208,6 +208,280 @@ File Testing
 
 
 
+Bash script
+
+1. Shebang: Telling the System it's a Bash Script
+At the top of every Bash script, include the shebang:
+bash
+Copy code
+#!/bin/bash
+This tells your system to use the Bash shell to run the script.
+________________________________________
+2. Comments: Explaining Your Code
+Use # to write comments so that your code is easier to understand (comments won't run as code).
+Example:
+bash
+Copy code
+#!/bin/bash
+# This is a comment, and it won't be executed.
+________________________________________
+3. Print Text: Using echo
+To display text in the terminal, use the echo command.
+Example:
+bash
+Copy code
+#!/bin/bash
+echo "Hello, World!"
+Output:
+Copy code
+Hello, World!
+________________________________________
+4. Variables: Storing Information
+Variables let you store information to reuse later. No $ when assigning, but use $ to refer to the variable.
+Example:
+bash
+Copy code
+#!/bin/bash
+# Defining a variable
+name="Alice"
+
+# Using the variable
+echo "Hello, $name!"
+Output:
+Copy code
+Hello, Alice!
+________________________________________
+5. Input from the User: read
+You can ask the user for input with read.
+Example:
+bash
+Copy code
+#!/bin/bash
+# Ask for the user's name
+echo "What's your name?"
+read name
+
+# Greet the user
+echo "Hello, $name!"
+Output (if the user types "Bob"):
+rust
+Copy code
+What's your name?
+Bob
+Hello, Bob!
+________________________________________
+6. Simple If-Else Conditions: Making Decisions
+Use if to run code only if a condition is true.
+Example:
+bash
+Copy code
+#!/bin/bash
+# Ask if the user is having a good day
+echo "Are you having a good day? (yes/no)"
+read answer
+
+if [ "$answer" = "yes" ]; then
+    echo "Great to hear!"
+else
+    echo "Hope it gets better!"
+fi
+Output:
+•	If the user types yes, the output will be Great to hear!
+•	If they type anything else, the output will be Hope it gets better!
+________________________________________
+7. Loops: Repeating Actions
+While Loop:
+Keeps running as long as a condition is true.
+Example:
+bash
+Copy code
+#!/bin/bash
+# Print numbers from 1 to 5
+count=1
+while [ $count -le 5 ]; do
+    echo "Number: $count"
+    ((count++))  # Increase the count by 1
+done
+Output:
+javascript
+Copy code
+Number: 1
+Number: 2
+Number: 3
+Number: 4
+Number: 5
+For Loop:
+Runs a set number of times.
+Example:
+bash
+Copy code
+#!/bin/bash
+# Loop through a list of items
+for fruit in apple banana cherry; do
+    echo "I like $fruit"
+done
+Output:
+css
+Copy code
+I like apple
+I like banana
+I like cherry
+________________________________________
+8. Functions: Grouping Tasks Together
+Functions allow you to group commands and run them by calling the function's name.
+Example:
+bash
+Copy code
+#!/bin/bash
+# Define a function
+greet() {
+    echo "Hello, $1!"  # $1 is the first argument passed to the function
+}
+
+# Call the function with an argument
+greet "Alice"
+Output:
+Copy code
+Hello, Alice!
+________________________________________
+9. Combining Everything in One Script
+Here’s a script that combines variables, user input, conditions, loops, and a function:
+bash
+Copy code
+#!/bin/bash
+
+# Function to greet the user
+greet() {
+    echo "Hello, $1!"
+}
+
+# Ask for the user's name
+echo "What's your name?"
+read name
+
+# Greet the user
+greet "$name"
+
+# Ask if the user likes fruits
+echo "Do you like fruits? (yes/no)"
+read answer
+
+if [ "$answer" = "yes" ]; then
+    # Print favorite fruits in a loop
+    echo "Here are some fruits:"
+    for fruit in apple banana cherry; do
+        echo "I like $fruit"
+    done
+else
+    echo "That's okay! Not everyone likes fruits."
+fi
+________________________________________
+10. Run Your Script
+1.	Save the script as my_script.sh.
+2.	Make it executable with:
+bash
+Copy code
+chmod +x my_script.sh
+3.	Run it with:
+bash
+Copy code
+./my_script.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+System Monitoring
+1. What is System Monitoring? Why is it important for maintaining a healthy Linux system?
+•	System Monitoring is the process of checking the performance and health of your computer, such as CPU, memory, and disk usage.
+•	Why is it important?
+o	It helps identify and fix problems (like high resource usage) before they affect the system's performance.
+o	It ensures that the system is running smoothly and efficiently.
+________________________________________
+2. Key Tools for System Monitoring
+a. top
+•	What it does:
+Displays real-time system processes, CPU, memory, and load averages.
+•	Example:
+Run top to monitor active processes.
+Press q to quit.
+b. htop
+•	What it does:
+Provides an easy-to-read, colorful display of system resource usage.
+•	Example:
+Run htop for a detailed view of CPU, memory, and running processes.
+Press q to quit.
+Installation:
+bash
+Copy code
+sudo apt install htop
+c. df
+•	What it does:
+Shows available disk space on mounted filesystems.
+•	Example:
+Run df -h to see disk usage in a human-readable format.
+d. uptime
+•	What it does:
+Displays how long the system has been running and system load.
+•	Example:
+Run uptime to check system load averages over the last 1, 5, and 15 minutes.
+________________________________________
+3. Log Monitoring
+a. journalctl
+•	What it does:
+Views and manages system logs on Linux.
+•	Example:
+Run journalctl -xe to display recent system errors and logs.
+b. /var/log
+•	What it is:
+A directory that stores important system logs (like kernel logs and boot logs).
+•	Example:
+To view the system log, use:
+bash
+Copy code
+cat /var/log/syslog
+________________________________________
+4. Self-Made Instructions: Monitoring System Resource Usage and Checking Logs
+Step 1: Check System Resource Usage
+•	Run htop to see live CPU and memory usage.
+•	Press q to quit the tool.
+Step 2: Check Disk Usage
+•	Run df -h to check how much disk space is available.
+Step 3: Check System Uptime and Load
+•	Run uptime to see how long the system has been running and the system load averages.
+Step 4: Check System Logs for Issues
+•	Run journalctl -xe to see recent system errors.
+•	Check /var/log/syslog for more general system logs.
+Example command:
+bash
+Copy code
+cat /var/log/syslog
+This basic process helps you monitor system performance and troubleshoot issues.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
