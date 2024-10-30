@@ -606,7 +606,57 @@ git push
 
 
 
+Initialize a Git repository:
 
+bash
+Copy code
+git init
+Clone a repository:
+
+bash
+Copy code
+git clone <repository-url>
+Check the status of your repository:
+
+bash
+Copy code
+git status
+Add files to the staging area:
+
+bash
+Copy code
+git add <file-name>  # or git add . to stage all changes
+Commit changes:
+
+bash
+Copy code
+git commit -m "Your commit message"
+View commit history:
+
+bash
+Copy code
+git log
+Push changes to a remote repository:
+
+bash
+Copy code
+git push origin <branch-name>
+Pull latest changes from a remote repository:
+
+bash
+Copy code
+git pull origin <branch-name>
+Create a new branch:
+
+bash
+Copy code
+git branch <new-branch-name>
+Switch to a branch:
+
+bash
+Copy code
+git checkout <branch-name>
+Do you need guidance on any of these commands?
 
 
 
