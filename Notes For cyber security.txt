@@ -656,7 +656,7 @@ Switch to a branch:
 bash
 Copy code
 git checkout <branch-name>
-Do you need guidance on any of these commands?
+
 
 
 
