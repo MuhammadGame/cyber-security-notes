@@ -660,9 +660,29 @@ git checkout <branch-name>
 
 
 
-
-
-
 Git:
  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
 S
+
+
+
+
+
+
+Privacy and Security Definitions
+
+1. Goverment a ruling authority in a state or nation
+2. Society A community of people that have similar interests, traditions and intitutions
+3. Community A group of people living in one place that have somthing common
+4. Legislation laws formed by the parliment act or somthing
+5. law are the rules that everyone has to follow but by laws are laws created by a lower organization or entity that has its own laws that are only implimented in the organization
+6. legal/illegal legal means stuff that is allowed by the law and illegal means actions that are not allowed by the law
+7. privacy a state in which an indivisual cant be observed or disturbed
+8. information security protecting information and information systems from unauthorized access
+9. security means when someone or somthing is safe from any sort of harm
+10. operational security is a saftey prosedure or risk management system to make sure that no one gets sensitive information
+11. Crown campanies are goverment owned campanies that act privately but serve the publics interest they are similar to a goverment department
+12. public campany is a campany that has its share available on stock exchange for people
+13. private companies dont share their stocks shares in public and is ofc own privately
+14. non profit means that the company or organization isnt making any money from public donations
+15 not for profit means that company still sells stuff but the goal is not to make profit but to "improve or and benifet a community" 
