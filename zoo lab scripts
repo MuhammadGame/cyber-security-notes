@@ -1,0 +1,99 @@
+#!/bin/bash
+
+LDAP_BASE="dc=zoo,dc=local"
+ADMIN_DN="cn=admin,$LDAP_BASE"
+
+# --- Script Start ---
+
+echo "Starting LDAP user creation script..."
+
+# Prompt for the LDAP Admin Password once at the beginning for efficiency.
+# The '-s' flag ensures the input is silent (not displayed on screen).
+echo "Please enter the LDAP Admin password for '$ADMIN_DN':"
+read -s ADMIN_PASSWORD
+echo # Add a newline after silent input for better readability
+
+# Basic check to ensure the admin password was entered.
+if [ -z "$ADMIN_PASSWORD" ]; then
+    echo "Error: LDAP Admin password cannot be empty. Exiting."
+    exit 1
+fi
+
+while IFS=',' read -r full_name username department birthday age pronoun; do
+# skip emty or header lines
+if [[ "$username" == "username" || -z "$username" ]]; then
+continue
+fi
+
+#Convert full name to first and last name
+first_name=$(echo "$full_name" | cut -d' ' -f1)
+last_name=$(echo "$full_name" | cut -d ' ' -f2)
+
+
+
+# Generate a random UID number for the posixAccount objectClass.
+    UID_NUMBER=$(shuf -i 10000-99999 -n 1)
+
+    # Construct the full Distinguished Name (DN) for the new user.
+    USER_DN="uid=$username,$LDAP_BASE"
+
+    # Create a temporary LDIF file for adding the user entry.
+    # IMPORTANT: The 'userPassword' attribute is NOT included here.
+    # The password will be set in a separate 'ldappasswd' step after the user is added.
+    cat << EOF > "/tmp/${username}.ldif"
+dn: $USER_DN
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: $full_name
+sn: $last_name
+uid: $username
+uidNumber: $UID_NUMBER
+gidNumber: 10000
+homeDirectory: /home/$username
+loginShell: /bin/bash
+gecos: $birthday, $age, $pronoun
+EOF
+
+echo "Attempting to add LDAP entry for user: $username..."
+
+    # Add the user entry to LDAP using 'ldapadd'.
+    # -x: Use simple authentication.
+    # -D "$ADMIN_DN": Specify the Bind DN (the administrative user).
+    # -w "$ADMIN_PASSWORD": Pass the admin's password from the variable.
+    # -f "/tmp/${username}.ldif": Specify the LDIF file to add.
+    # The 'if' statement checks the exit status of 'ldapadd' for success/failure.
+    if ldapadd -x -D "$ADMIN_DN" -w "$ADMIN_PASSWORD" -f "/tmp/${username}.ldif"; then
+        echo "Successfully added LDAP entry for user: $username."
+
+        # Define the initial password for the newly created user.
+        # SECURITY NOTE: Hardcoding 'changeme' is highly insecure for production environments.
+        NEW_USER_PASSWORD="changeme"
+
+        echo "Attempting to set password for user: $username..."
+        # Set the password for the newly created user using 'ldappasswd'.
+        # This command sends the plaintext password to the LDAP server,
+        # and the server itself handles the hashing and storage according to its policies.
+        # -x: Use simple authentication.
+        # -D "$ADMIN_DN": Bind as the admin user to perform the password change.
+        # -w "$ADMIN_PASSWORD": Use the admin's password.
+        # -s "$NEW_USER_PASSWORD": The plaintext new password for the user.
+        # "$USER_DN": The Distinguished Name of the user whose password is being set.
+        if ldappasswd -x -D "$ADMIN_DN" -w "$ADMIN_PASSWORD" -s "$NEW_USER_PASSWORD" "$USER_DN"; then
+            echo "Successfully set password for user: $username."
+        else
+            echo "Error: Failed to set password for user: $username."
+            echo "Please check LDAP server logs for details. The user entry might exist without a password, or with an incorrect one."
+        fi
+    else
+        echo "Error: Failed to add LDAP entry for user: $username."
+        echo "This could be due to incorrect admin credentials, a non-existent OU ($department), or other LDAP server issues."
+        echo "Please check LDAP server logs and the generated LDIF file (/tmp/${username}.ldif) for details."
+    fi
+
+    # Clean up the temporary LDIF file after processing each user.
+    rm -f "/tmp/${username}.ldif"
+
+    echo "--- Finished processing user: $username ---"
+    echo "" # Add an empty line for better readability between user outputs
+done < zoo_users.csv
